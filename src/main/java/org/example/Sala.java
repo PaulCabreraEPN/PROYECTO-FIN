@@ -1,2 +1,7 @@
-package org.example;public class Sala {
+package org.example;
+
+import javax.swing.*;
+
+public class Sala {
+    public JPanel MainPanel;
 }
