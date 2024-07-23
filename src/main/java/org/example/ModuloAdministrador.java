@@ -19,6 +19,18 @@ public class ModuloAdministrador {
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
                 frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
+            }
+        });
+        clientesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Gestion_Usuarios().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }
         });
     }

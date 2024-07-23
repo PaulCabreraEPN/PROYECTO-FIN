@@ -29,6 +29,8 @@ public class Login {
                 String rol= (String) campoRol.getSelectedItem();
                 if (rol=="Cliente"){
                     System.out.println("Ingreso como "+rol);
+                    JFrame frame = new JFrame();
+                    ((JFrame)SwingUtilities.getWindowAncestor(ingresarButton)).dispose();
                 }else {
                     System.out.println("Ingreso como el "+rol);
                     JFrame frame = new JFrame();
@@ -36,6 +38,7 @@ public class Login {
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     frame.setSize(500, 500);
                     frame.setVisible(true);
+                    ((JFrame)SwingUtilities.getWindowAncestor(ingresarButton)).dispose();
                 }
             }
         });

@@ -1,0 +1,28 @@
+package org.example;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Gestion_Usuarios {
+    public JPanel MainPanel;
+    private JButton registrarButton;
+    private JButton buscarButton;
+    private JButton eliminarButton;
+    private JButton actualizarButton;
+    private JButton regresarbutton;
+
+    public Gestion_Usuarios() {
+        regresarbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new ModuloAdministrador().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(regresarbutton)).dispose();
+            }
+        });
+    }
+}
