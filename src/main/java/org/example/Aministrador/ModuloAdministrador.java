@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Aministrador;
+
+import org.example.Login;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

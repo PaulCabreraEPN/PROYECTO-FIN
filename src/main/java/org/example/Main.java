@@ -2,15 +2,6 @@ package org.example;
 
 import javax.swing.*;
 
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.result.UpdateResult;
-import com.mongodb.client.result.DeleteResult;
-
 public class Main {
     public static void main(String[] args) {
 
