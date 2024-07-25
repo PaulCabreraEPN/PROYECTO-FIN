@@ -11,9 +11,6 @@ import org.example.Objetos.Usuario;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyVetoException;
-import java.beans.VetoableChangeListener;
 
 public class Buscar_Usuario {
     public JPanel MainPanel;
@@ -28,6 +25,7 @@ public class Buscar_Usuario {
     private JLabel texto_telefono;
     private JLabel texto_domicilio;
     private JLabel texto_correo;
+    private JButton limpiarButton;
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     Usuario usuario = new Usuario();
 
@@ -106,6 +104,20 @@ public class Buscar_Usuario {
 
                     }
                 }
+            }
+        });
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                textbuscar.setText(null);
+                texto_cedula.setText(null);
+                texto_usuario.setText(null);
+                texto_nombre.setText(null);
+                texto_categoria.setText(null);
+                texto_correo.setText(null);
+                texto_telefono.setText(null);
+                texto_domicilio.setText(null);
+
             }
         });
     }

@@ -29,7 +29,6 @@ public class Registrar_Usuario {
     private JTextField campo_nombre;
     private JTextField campo_cedula;
     private JTextField campo_edad;
-    private JLabel AvisoRegistro;
 
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -41,7 +40,7 @@ public class Registrar_Usuario {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame();
-                frame.setContentPane( new ModuloAdministrador().MainPanel);
+                frame.setContentPane( new Gestion_Usuarios().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
                 frame.setVisible(true);
