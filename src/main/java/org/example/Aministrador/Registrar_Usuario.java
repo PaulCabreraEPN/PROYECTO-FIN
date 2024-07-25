@@ -3,6 +3,10 @@ package org.example.Aministrador;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import com.mongodb.ConnectionString;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.MongoException;
+import com.mongodb.MongoClientException;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -25,6 +29,7 @@ public class Registrar_Usuario {
     private JTextField campo_nombre;
     private JTextField campo_cedula;
     private JTextField campo_edad;
+    private JLabel AvisoRegistro;
 
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -48,6 +53,9 @@ public class Registrar_Usuario {
         registrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Validar que los campos se encuentren llenos
+
+
                 //Se le dan valores al objeto Usuario
                 usuario.setCedula(campo_cedula.getText());
                 usuario.setUser(campo_usuario.getText());
@@ -59,15 +67,18 @@ public class Registrar_Usuario {
                 usuario.setTelefono(campo_telefono.getText());
                 usuario.setDomicilio(campo_domicilio.getText());
 
+
+                //Se establece la conexión con la Base de Datos
                 try (MongoClient mongoClient = MongoClients.create(connectionString)) {
                     MongoDatabase database = mongoClient.getDatabase("CinePoli");
                     MongoCollection<Document> collection = database.getCollection("Clientes");
+                    //Se inserta el nuevo cliente en la base de datos
                     Document documento = new Document("cedula", usuario.getCedula())
                             .append("usuario", usuario.getUser())
                             .append("contraseña", usuario.getPassword())
                             .append("nombre", usuario.getNombre())
                             .append("apellido", usuario.getApellido())
-                            .append("edad", String.valueOf(usuario.getEdad()))
+                            .append("edad", usuario.getEdad())
                             .append("categoría", usuario.Calcular_mayoria_edad(usuario.getEdad()))
                             .append("correo", usuario.getCorreo())
                             .append("telefono", usuario.getTelefono())

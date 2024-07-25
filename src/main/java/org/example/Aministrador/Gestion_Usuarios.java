@@ -37,5 +37,16 @@ public class Gestion_Usuarios {
                 ((JFrame)SwingUtilities.getWindowAncestor(regresarbutton)).dispose();
             }
         });
+        buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Buscar_Usuario().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(700, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(regresarbutton)).dispose();
+            }
+        });
     }
 }
