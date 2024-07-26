@@ -13,6 +13,8 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.example.Objetos.Usuario;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Registrar_Usuario {
     //Componentes del JPanel de Registro de Usuarios
@@ -55,10 +57,14 @@ public class Registrar_Usuario {
                 //Validar que los campos se encuentren llenos
 
 
+                ;
+
+
                 //Se le dan valores al objeto Usuario
                 usuario.setCedula(campo_cedula.getText());
                 usuario.setUser(campo_usuario.getText());
-                usuario.setPassword(campo_contrasenia.getText());
+                //contraseña encriptadad
+                usuario.setPassword(generateHash(campo_contrasenia.getText()));
                 usuario.setNombre(campo_nombre.getText());
                 usuario.setApellido(campo_apellido.getText());
                 usuario.setEdad(Integer.parseInt(campo_edad.getText()));
@@ -89,5 +95,27 @@ public class Registrar_Usuario {
                 }
             }
         });
+    }
+
+    public static String generateHash(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] encodedhash = digest.digest(input.getBytes());
+            return bytesToHex(encodedhash);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static String bytesToHex(byte[] hash) {
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hash) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 }

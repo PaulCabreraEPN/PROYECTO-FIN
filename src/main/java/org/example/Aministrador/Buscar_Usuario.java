@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class Buscar_Usuario {
     public JPanel MainPanel;
-    private JButton porCédulaButton;
+    private JButton porCedulaButton;
     private JButton porUserNameButton;
     private JTextField textbuscar;
     private JLabel Usuario;
@@ -26,19 +26,23 @@ public class Buscar_Usuario {
     private JLabel texto_domicilio;
     private JLabel texto_correo;
     private JButton limpiarButton;
+    private JButton regresarbutton;
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     Usuario usuario = new Usuario();
 
+
     public Buscar_Usuario() {
-        porCédulaButton.addActionListener(new ActionListener() {
+        porCedulaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Boolean encontrar = false;
+                //Se establece la conexión con la Base de Datos
                 try (MongoClient mongoClient = MongoClients.create(connectionString)) {
                     MongoDatabase database = mongoClient.getDatabase("CinePoli");
                     MongoCollection<Document> collection = database.getCollection("Clientes");
-                    //Se lee
+                    //Se taen los datos de consulta
                     FindIterable<Document> documentos = collection.find();
-
+                    //Se recorren los datos
                     for (Document documento : documentos) {
                         //System.out.println(documento.toJson());
                         usuario.setCedula(documento.getString("cedula"));
@@ -50,7 +54,7 @@ public class Buscar_Usuario {
                         usuario.setDomicilio(documento.getString("domicilio"));
                         String categoria = documento.getString("categoría");
 
-
+                        //Retorna unicamente los valores que se buscan
                         if (textbuscar.getText().equals(usuario.getCedula())){
                             texto_cedula.setText(usuario.getCedula());
                             texto_usuario.setText(usuario.getUser());
@@ -59,9 +63,11 @@ public class Buscar_Usuario {
                             texto_correo.setText(usuario.getCorreo());
                             texto_telefono.setText(usuario.getTelefono());
                             texto_domicilio.setText(usuario.getDomicilio());
+                            encontrar = true;
                         }
-
-
+                    }
+                    if (encontrar.equals(false)){
+                        System.out.println("Usuario Inexistente");
                     }
                 }
 
@@ -118,6 +124,17 @@ public class Buscar_Usuario {
                 texto_telefono.setText(null);
                 texto_domicilio.setText(null);
 
+            }
+        });
+        regresarbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Gestion_Usuarios().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(regresarbutton)).dispose();
             }
         });
     }
