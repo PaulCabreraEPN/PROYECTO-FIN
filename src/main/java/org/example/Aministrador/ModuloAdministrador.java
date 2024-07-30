@@ -35,5 +35,16 @@ public class ModuloAdministrador {
                 ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }
         });
+        peliculasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Gestionar_Peliculas().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
+            }
+        });
     }
 }
