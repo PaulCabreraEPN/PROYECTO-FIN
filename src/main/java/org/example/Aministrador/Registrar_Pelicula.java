@@ -34,6 +34,7 @@ public class Registrar_Pelicula {
     //Creamos Pelicula
     Pelicula pelicula = new Pelicula();
 
+
     public Registrar_Pelicula() {
         insertar_img.addActionListener(new ActionListener() {
             @Override
@@ -42,7 +43,7 @@ public class Registrar_Pelicula {
                 JFileChooser fileChooser = new JFileChooser();
 
                 // Crear el filtro de archivos
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen (JPG, PNG)", "jpg", "png");
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen (JPG, PNG)", "jpg");
                 fileChooser.setFileFilter(filter);
 
                 // Mostrar el diálogo de abrir archivo
@@ -88,8 +89,10 @@ public class Registrar_Pelicula {
             public void actionPerformed(ActionEvent e) {
                 boolean vacios=false;
                 boolean existencia=false;
-                //Validar que los campos se encuentren llenos
+                //Salas ocupadas
+                String salaOcupada = (String) campo_sala.getSelectedItem();
 
+                //Validar que los campos se encuentren llenos
                 if (campo_codigo.getText().equals("")){
                     vacios=true;
                 }else {
@@ -119,16 +122,34 @@ public class Registrar_Pelicula {
                         //Se lee
                         FindIterable<Document> documentos = collection.find();
                         for (Document documento : documentos) {
-                            //Busco la existencia del Codigo
+                            //Busco la existencia del Titulo
                             pelicula.setTitulo(documento.getString("titulo"));
 
-                            if (campo_codigo.getText().equals(pelicula.getCodigo())){
+                            if (campo_titulo.getText().equals(pelicula.getTitulo())){
                                 JOptionPane.showMessageDialog(null, "Película existente, Por Favor Ingrese uno Nueva", "Aviso", JOptionPane.WARNING_MESSAGE);
                                 existencia=true;
                             }
                         }
                     }
                 }
+
+                try (MongoClient mongoClient = MongoClients.create(connectionString)) {
+                    MongoDatabase database = mongoClient.getDatabase("CinePoli");
+                    MongoCollection<Document> collection = database.getCollection("Peliculas");
+                    //Se lee
+                    FindIterable<Document> documentos = collection.find();
+                    for (Document documento : documentos) {
+                        //Busco la existencia de la Sala
+                        pelicula.setSala(documento.getString("sala"));
+
+                        if (pelicula.getSala().equals(salaOcupada)){
+                            JOptionPane.showMessageDialog(null, "Sala Ocupada, Por Favor Ingrese una Diferente", "Aviso", JOptionPane.WARNING_MESSAGE);
+                            existencia=true;
+                        }
+                    }
+                }
+
+
 
                 if (campo_precio.getText().equals("")){
                     vacios=true;
@@ -164,7 +185,7 @@ public class Registrar_Pelicula {
                                 ;
                         pelicula.Mostrar_pelicula();
                         collection.insertOne(documento);
-                        JOptionPane.showMessageDialog(null, "Peícula Registrada Con Éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Película Registrada Con Éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     }
                 }else {
                     JOptionPane.showMessageDialog(null, "Existen Campos Vacíos o Erroneos. Por favor llenarlos", "Aviso", JOptionPane.WARNING_MESSAGE);
