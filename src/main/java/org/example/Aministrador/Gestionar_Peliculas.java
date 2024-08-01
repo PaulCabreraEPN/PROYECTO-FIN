@@ -19,7 +19,7 @@ public class Gestionar_Peliculas {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Registrar_Pelicula().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setSize(500, 700);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }

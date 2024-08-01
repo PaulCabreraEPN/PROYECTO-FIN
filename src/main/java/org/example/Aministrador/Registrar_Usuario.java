@@ -65,7 +65,6 @@ public class Registrar_Usuario {
                 boolean existencia=false;
                 //Validar que los campos se encuentren llenos
 
-
                 if (campo_usuario.getText().equals("")){
                     vacios=true;
                 }else {
