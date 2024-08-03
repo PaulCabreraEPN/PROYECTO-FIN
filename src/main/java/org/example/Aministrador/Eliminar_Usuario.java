@@ -29,7 +29,7 @@ public class Eliminar_Usuario {
                 //Se establece la conexión con la Base de Datos
                 try (MongoClient mongoClient = MongoClients.create(connectionString)) {
                     MongoDatabase database = mongoClient.getDatabase("CinePoli");
-                    MongoCollection<Document> collection = database.getCollection("Clientes");
+                    MongoCollection<Document> collection = database.getCollection("Peliculas");
                     //Se taen los datos de consulta
                     FindIterable<Document> documentos = collection.find();
                     //Se recorren los datos
@@ -62,7 +62,7 @@ public class Eliminar_Usuario {
                     JOptionPane.showMessageDialog(null, "Este Usuario se borrará permanentemente.", "Aviso", JOptionPane.WARNING_MESSAGE);
                     try (MongoClient mongoClient = MongoClients.create(connectionString)) {
                         MongoDatabase database = mongoClient.getDatabase("CinePoli");
-                        MongoCollection<Document> collection = database.getCollection("Clientes");
+                        MongoCollection<Document> collection = database.getCollection("Peliculas");
                         Document filtro = new Document("usuario", textbuscar.getText() );
                         DeleteResult resultado = collection.deleteOne(filtro);
                         System.out.println("Documentos borrados: " + resultado.getDeletedCount());

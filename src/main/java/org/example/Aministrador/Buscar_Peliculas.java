@@ -26,6 +26,7 @@ public class Buscar_Peliculas {
     private JLabel texto_categoria;
     private JLabel texto_precio;
     private JLabel texto_genero;
+    private JButton regresar_button;
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     //Creamos Pelicula
@@ -76,6 +77,17 @@ public class Buscar_Peliculas {
                     throw new RuntimeException(ex);
                 }
             }
+        });
+        regresar_button.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        JFrame frame = new JFrame();
+                        frame.setContentPane( new Gestionar_Peliculas().MainPanel);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setSize(500, 500);
+                        frame.setVisible(true);
+                        ((JFrame)SwingUtilities.getWindowAncestor(regresar_button)).dispose();
+                    }
         });
     }
 }

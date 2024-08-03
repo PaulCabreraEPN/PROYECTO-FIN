@@ -27,6 +27,7 @@ public class Registrar_Pelicula {
     private JLabel fin;
     private JComboBox campo_sala;
     private JComboBox campo_genero;
+    private JButton regresar_button;
     private JLabel Imagen;
     String ruta;
     //Variable de conexión a MongoDB Atlas
@@ -191,6 +192,17 @@ public class Registrar_Pelicula {
                     JOptionPane.showMessageDialog(null, "Existen Campos Vacíos o Erroneos. Por favor llenarlos", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
 
+            }
+        });
+        regresar_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Gestionar_Peliculas().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(regresar_button)).dispose();
             }
         });
     }

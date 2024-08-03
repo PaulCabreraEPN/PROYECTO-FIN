@@ -27,6 +27,7 @@ public class Actualizar_Peliculas {
     private JComboBox campo_sala;
     private JComboBox campo_categoria;
     private JButton actualizarButton;
+    private JButton regresar_button;
 
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -115,12 +116,24 @@ public class Actualizar_Peliculas {
                     if (existencia == false){
                         Document actualizacion = new Document("$set", new Document("titulo", campo_titulo.getText()).append("sinopsis", campo_sinopsis.getText()).append("genero", genero ).append("sala", sala ).append("genero", genero ).append("categoria", categoria ).append("genero", genero ).append("precio", precio ));
                         UpdateResult resultado = collection.updateOne(filtro, actualizacion);
-
+                        JOptionPane.showMessageDialog(null, "Se han actualizado" + resultado.getModifiedCount() + "con éxito.", "Éxito", JOptionPane.WARNING_MESSAGE);
                         System.out.println("Documentos modificados: " + resultado.getModifiedCount());
 
                     }
 
                 }
+            }
+        });
+        regresar_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                        JFrame frame = new JFrame();
+                        frame.setContentPane( new Gestionar_Peliculas().MainPanel);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setSize(500, 500);
+                        frame.setVisible(true);
+                        ((JFrame)SwingUtilities.getWindowAncestor(regresar_button)).dispose();
+
             }
         });
     }
