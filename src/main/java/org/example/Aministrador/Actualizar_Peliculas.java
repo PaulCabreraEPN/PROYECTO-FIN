@@ -8,10 +8,12 @@ import org.example.Objetos.Pelicula;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class Actualizar_Peliculas {
@@ -19,7 +21,7 @@ public class Actualizar_Peliculas {
     private JTextField campo_codigo;
     private JButton consultarButton;
     private JLabel imagen;
-    private JButton reemplazarButton;
+    private JButton actualizar_img;
     private JTextField campo_titulo;
     private JTextField campo_precio;
     private JTextField campo_sinopsis;
@@ -114,9 +116,9 @@ public class Actualizar_Peliculas {
                     Document filtro = new Document("codigo", campo_codigo.getText());
 
                     if (existencia == false){
-                        Document actualizacion = new Document("$set", new Document("titulo", campo_titulo.getText()).append("sinopsis", campo_sinopsis.getText()).append("genero", genero ).append("sala", sala ).append("genero", genero ).append("categoria", categoria ).append("genero", genero ).append("precio", precio ));
+                        Document actualizacion = new Document("$set", new Document("titulo", campo_titulo.getText()).append("sinopsis", campo_sinopsis.getText()).append("genero", genero ).append("sala", sala ).append("genero", genero ).append("categoria", categoria ).append("genero", genero ).append("precio", precio ).append("imagen", pelicula.getImagen() ));
                         UpdateResult resultado = collection.updateOne(filtro, actualizacion);
-                        JOptionPane.showMessageDialog(null, "Se han actualizado" + resultado.getModifiedCount() + "con éxito.", "Éxito", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Se han actualizado " + resultado.getModifiedCount() + " elementos con éxito.", "Éxito", JOptionPane.WARNING_MESSAGE);
                         System.out.println("Documentos modificados: " + resultado.getModifiedCount());
 
                     }
@@ -134,6 +136,52 @@ public class Actualizar_Peliculas {
                         frame.setVisible(true);
                         ((JFrame)SwingUtilities.getWindowAncestor(regresar_button)).dispose();
 
+            }
+        });
+        actualizar_img.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Crear el JFileChooser
+                JFileChooser fileChooser = new JFileChooser();
+
+                // Crear el filtro de archivos
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen (JPG, PNG)", "jpg");
+                fileChooser.setFileFilter(filter);
+
+                // Mostrar el diálogo de abrir archivo
+                int result = fileChooser.showOpenDialog(null);
+
+                // Si se selecciona un archivo
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    // Obtener el archivo seleccionado
+                    java.io.File selectedFile = fileChooser.getSelectedFile();
+                    try {
+                        // Leer la imagen
+                        BufferedImage image = ImageIO.read(selectedFile);
+
+                        // Convertir la imagen a un arreglo de bytes
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        ImageIO.write(image, "jpg", baos); // Aquí se asume que se guarda como JPG
+                        byte[] imageBytes = baos.toByteArray();
+                        pelicula.setImagen(imageBytes);
+
+                        // Mostrar mensaje confirmando la operación
+                        JOptionPane.showMessageDialog(null, "Imagen leída y convertida a bytes con éxito. Tamaño: " + imageBytes.length + " bytes");
+
+                        // Convertir los bytes de vuelta a una imagen
+                        ByteArrayInputStream bais = new ByteArrayInputStream(imageBytes);
+                        BufferedImage newImage = ImageIO.read(bais);
+
+                        // Mostrar la imagen en el JLabel
+                        ImageIcon icon = new ImageIcon(newImage);
+                        imagen.setIcon(icon);
+
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Error al leer la imagen: " + ex.getMessage());
+                    }
+
+                }
             }
         });
     }
