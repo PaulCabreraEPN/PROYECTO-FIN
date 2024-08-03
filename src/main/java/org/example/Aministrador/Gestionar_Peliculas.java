@@ -35,5 +35,16 @@ public class Gestionar_Peliculas {
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }
         });
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Actualizar_Peliculas().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 700);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
+            }
+        });
     }
 }

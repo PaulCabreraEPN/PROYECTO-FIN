@@ -33,7 +33,7 @@ public class Actualizar_Usuario {
                 usuario.Mostrar_usuario();
                 try (MongoClient mongoClient = MongoClients.create(connectionString)) {
                     MongoDatabase database = mongoClient.getDatabase("CinePoli");
-                    MongoCollection<Document> collection = database.getCollection("Clientes");
+                    MongoCollection<Document> collection = database.getCollection("Peliculas");
                     //Se taen los datos de consulta
                     Document filtro = new Document("usuario", texto_usuario.getText());
                     Document actualizacion = new Document("$set", new Document("telefono", texto_telefono.getText()).append("correo", texto_correo.getText()).append("domicilio", texto_domicilio.getText()));

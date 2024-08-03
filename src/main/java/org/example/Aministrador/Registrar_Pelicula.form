@@ -160,8 +160,8 @@
                     </constraints>
                     <properties>
                       <model>
-                        <item value="Mayor de Edad"/>
                         <item value="Todo Público"/>
+                        <item value="Mayor de Edad"/>
                       </model>
                     </properties>
                   </component>

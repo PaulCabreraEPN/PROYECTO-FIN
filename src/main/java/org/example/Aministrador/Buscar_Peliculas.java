@@ -10,11 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import org.bson.Document;
+
 import org.bson.types.Binary;
 
 
@@ -23,6 +20,12 @@ public class Buscar_Peliculas {
     private JTextField campo_codigo;
     private JButton consultarButton;
     private JLabel imagen;
+    private JLabel texto_titulo;
+    private JLabel texto_sinopsis;
+    private JLabel texto_sala;
+    private JLabel texto_categoria;
+    private JLabel texto_precio;
+    private JLabel texto_genero;
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     //Creamos Pelicula
@@ -41,15 +44,32 @@ public class Buscar_Peliculas {
                         //Busco la existencia del Codigo
                         pelicula.setCodigo(documento.getString("codigo"));
                         Binary binaryContent = documento.get("imagen", Binary.class);
-                        byte[] contenido_imagen=binaryContent.getData();
+                        pelicula.setImagen(binaryContent.getData());
+                        pelicula.setTitulo(documento.getString("titulo"));
+                        pelicula.setSinopsis(documento.getString("sinopsis"));
+                        pelicula.setGenero(documento.getString("genero"));
+                        pelicula.setSala(documento.getString("sala"));
+                        pelicula.setCategoria(documento.getString("categoria"));
+                        pelicula.setPrecio(documento.getDouble("precio"));
 
-                        // Convertir los bytes de vuelta a una imagen
-                        ByteArrayInputStream bais = new ByteArrayInputStream(contenido_imagen);
-                        BufferedImage newImage = ImageIO.read(bais);
+                        if(campo_codigo.getText().equals(pelicula.getCodigo())){
+                            // Convertir los bytes de vuelta a una imagen
+                            ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
+                            BufferedImage newImage = ImageIO.read(bais);
+                            // Mostrar la imagen en el JLabel
+                            ImageIcon icon = new ImageIcon(newImage);
+                            imagen.setIcon(icon);
 
-                        // Mostrar la imagen en el JLabel
-                        ImageIcon icon = new ImageIcon(newImage);
-                        imagen.setIcon(icon);
+                            texto_titulo.setText(pelicula.getTitulo());
+                            texto_sinopsis.setText(pelicula.getSinopsis());
+                            texto_genero.setText(pelicula.getGenero());
+                            texto_sala.setText(pelicula.getSala());
+                            texto_categoria.setText(pelicula.getCategoria());
+                            texto_precio.setText("$" + String.valueOf(pelicula.getPrecio()));
+
+                        }
+
+
 
                     }
                 } catch (IOException ex) {
