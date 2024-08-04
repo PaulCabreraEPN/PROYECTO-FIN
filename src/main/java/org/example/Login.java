@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.Aministrador.ModuloAdministrador;
+import org.example.Usuario.ModuloUsuario;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,6 +32,10 @@ public class Login {
                 if (rol=="Cliente"){
                     System.out.println("Ingreso como "+rol);
                     JFrame frame = new JFrame();
+                    frame.setContentPane( new ModuloUsuario().MainPanel);
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setSize(500, 500);
+                    frame.setVisible(true);
                     ((JFrame)SwingUtilities.getWindowAncestor(ingresarButton)).dispose();
                 }else {
                     System.out.println("Ingreso como el "+rol);
