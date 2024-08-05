@@ -3,10 +3,14 @@ package org.example.Usuario;
 import com.mongodb.client.*;
 import org.bson.Document;
 import org.bson.types.Binary;
+import org.example.Aministrador.ModuloAdministrador;
 import org.example.Objetos.Pelicula;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -35,16 +39,150 @@ public class ModuloUsuario {
     private JLabel titulo_sala_8;
     private JLabel titulo_sala_9;
     private JLabel titulo_sala_10;
+
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     //Creamos Pelicula
-    Pelicula pelicula = new Pelicula();
+    protected Pelicula pelicula = new Pelicula();
+
 
     public ModuloUsuario() {
         // Llama a la función automáticamente después de que el JFrame esté visible
         Timer timer = new Timer(100, e -> mostrar_peliculas());
         timer.setRepeats(false);
         timer.start();
+
+        sala_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 1");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+
+            }
+        });
+        sala_2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 2");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 3");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 4");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 5");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 6");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 7");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 8");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 9");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        sala_10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                SeleccionaPelicula Panel=new SeleccionaPelicula();
+                Panel.setSelectSala("Sala 10");
+                frame.setContentPane(Panel.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
     }
 
 
@@ -60,6 +198,7 @@ public class ModuloUsuario {
         sala_8.setEnabled(false);
         sala_9.setEnabled(false);
         sala_10.setEnabled(false);
+        String SalaEncontrada;
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
             MongoDatabase database = mongoClient.getDatabase("CinePoli");
             MongoCollection<Document> collection = database.getCollection("Peliculas");
@@ -73,11 +212,11 @@ public class ModuloUsuario {
                 pelicula.setTitulo(documento.getString("titulo"));
                 pelicula.setSinopsis(documento.getString("sinopsis"));
                 pelicula.setGenero(documento.getString("genero"));
-                pelicula.setSala(documento.getString("sala"));
+                SalaEncontrada=(documento.getString("sala"));
                 pelicula.setCategoria(documento.getString("categoria"));
                 pelicula.setPrecio(documento.getDouble("precio"));
 
-                if(pelicula.getSala().equals("Sala 1")){
+                if(SalaEncontrada.equals("Sala 1")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -89,7 +228,7 @@ public class ModuloUsuario {
                     titulo_sala_1.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 2")){
+                if(SalaEncontrada.equals("Sala 2")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -101,7 +240,7 @@ public class ModuloUsuario {
                     titulo_sala_2.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 3")){
+                if(SalaEncontrada.equals("Sala 3")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -113,7 +252,7 @@ public class ModuloUsuario {
                     titulo_sala_3.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 4")){
+                if(SalaEncontrada.equals("Sala 4")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -125,7 +264,7 @@ public class ModuloUsuario {
                     titulo_sala_4.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 5")){
+                if(SalaEncontrada.equals("Sala 5")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -137,7 +276,7 @@ public class ModuloUsuario {
                     titulo_sala_5.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 6")){
+                if(SalaEncontrada.equals("Sala 6")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -149,7 +288,7 @@ public class ModuloUsuario {
                     titulo_sala_6.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 7")){
+                if(SalaEncontrada.equals("Sala 7")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -161,7 +300,7 @@ public class ModuloUsuario {
                     titulo_sala_7.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 8")){
+                if(SalaEncontrada.equals("Sala 8")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -174,7 +313,7 @@ public class ModuloUsuario {
                 }
 
 
-                if(pelicula.getSala().equals("Sala 9")){
+                if(SalaEncontrada.equals("Sala 9")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);
@@ -186,7 +325,7 @@ public class ModuloUsuario {
                     titulo_sala_9.setText(pelicula.getTitulo());
                 }
 
-                if(pelicula.getSala().equals("Sala 10")){
+                if(SalaEncontrada.equals("Sala 10")){
                     // Convertir los bytes de vuelta a una imagen
                     ByteArrayInputStream bais = new ByteArrayInputStream(pelicula.getImagen());
                     BufferedImage newImage = ImageIO.read(bais);

@@ -15,6 +15,7 @@ public class Login {
     private JComboBox campoRol;
     private JButton ingresarButton;
     private JButton cancelarButton;
+    private JLabel texto_inicio;
 
     public Login() {
         cancelarButton.addActionListener(new ActionListener() {
@@ -48,5 +49,10 @@ public class Login {
                 }
             }
         });
+    }
+
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }
