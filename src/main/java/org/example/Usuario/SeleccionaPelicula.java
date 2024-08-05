@@ -7,6 +7,7 @@ import org.example.Objetos.Pelicula;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -31,6 +32,15 @@ public class SeleccionaPelicula {
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     String SelectSala;
     Pelicula pelicula = new Pelicula();
+    String Usuario;
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        Usuario = usuario;
+    }
 
     public String getSelectSala() {
         return SelectSala;
@@ -70,6 +80,7 @@ public class SeleccionaPelicula {
                 Panel.setHora_pelicula(hora);
                 Panel.setIdioma_pelicula(idioma);
                 Panel.setCantidad_tickets(intTickets);
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);

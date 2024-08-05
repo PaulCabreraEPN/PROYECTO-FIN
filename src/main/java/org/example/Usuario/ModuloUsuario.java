@@ -4,6 +4,7 @@ import com.mongodb.client.*;
 import org.bson.Document;
 import org.bson.types.Binary;
 import org.example.Aministrador.ModuloAdministrador;
+import org.example.Login;
 import org.example.Objetos.Pelicula;
 
 import javax.imageio.ImageIO;
@@ -39,6 +40,16 @@ public class ModuloUsuario {
     private JLabel titulo_sala_8;
     private JLabel titulo_sala_9;
     private JLabel titulo_sala_10;
+    private JLabel Bienvenida;
+    String Usuario;
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        Usuario = usuario;
+    }
 
     //Variable de conexión a MongoDB Atlas
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -58,6 +69,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 1");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -72,6 +84,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 2");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -85,6 +98,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 3");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -98,6 +112,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 4");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -111,6 +126,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 5");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -124,6 +140,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 6");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -137,6 +154,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 7");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -150,6 +168,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 8");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -163,6 +182,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 9");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
@@ -176,11 +196,51 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 SeleccionaPelicula Panel=new SeleccionaPelicula();
                 Panel.setSelectSala("Sala 10");
+                Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
+            }
+        });
+        cerrarSesionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Login().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        /*
+        // Obtiene el dispositivo de gráficos
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+
+        if (gd.isFullScreenSupported()) {
+            frame.setUndecorated(true); // Quita los bordes y la barra de título
+            gd.setFullScreenWindow(frame);
+        } else {
+            System.err.println("Pantalla completa no es soportada");
+            frame.setSize(800, 600); // Tamaño por defecto si pantalla completa no es soportada
+            frame.setVisible(true);
+        }*/
+
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
+
+            }
+        });
+
+        misTicketsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                MisTickets misTickets = new MisTickets();
+                misTickets.setUsuario(Usuario);
+                frame.setContentPane( misTickets.MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }
         });
     }
@@ -199,6 +259,7 @@ public class ModuloUsuario {
         sala_9.setEnabled(false);
         sala_10.setEnabled(false);
         String SalaEncontrada;
+        Bienvenida.setText("Bienvenid@ "+Usuario);
         try (MongoClient mongoClient = MongoClients.create(connectionString)) {
             MongoDatabase database = mongoClient.getDatabase("CinePoli");
             MongoCollection<Document> collection = database.getCollection("Peliculas");

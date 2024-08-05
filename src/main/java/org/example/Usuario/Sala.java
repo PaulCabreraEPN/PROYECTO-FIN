@@ -68,8 +68,17 @@ public class Sala {
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     Pelicula pelicula=new Pelicula();
     Ticket ticket = new Ticket();
+    String Usuario;
 
     ArrayList <String> tickets_selecionados = new ArrayList<>();
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        Usuario = usuario;
+    }
 
     public String getMisala() {
         return misala;
@@ -699,7 +708,7 @@ public class Sala {
             public void actionPerformed(ActionEvent e) {
 
                 //Seteo el ticket
-                ticket.setUsuario("Paul");
+                ticket.setUsuario(getUsuario());
                 ticket.setFecha(LocalDateTime.now());
                 ticket.setHorario(hora_pelicula);
                 ticket.setIdioma(idioma_pelicula);
@@ -729,7 +738,7 @@ public class Sala {
                     }
 
 
-                    JOptionPane.showMessageDialog(null, "las butacas " + tickets_selecionados + " se han reservado con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Las butacas " + tickets_selecionados + " se han reservado con éxito \n Valor a pagar $ " + String.valueOf(valor_apagar), "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     JFrame frame = new JFrame();
                     frame.setContentPane( new ModuloUsuario().MainPanel);
                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
