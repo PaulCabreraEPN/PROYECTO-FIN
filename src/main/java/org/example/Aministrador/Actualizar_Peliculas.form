@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.example.Aministrador.Actualizar_Peliculas">
-  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="669"/>
+      <xy x="20" y="20" width="500" height="775"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-16577768"/>
+    </properties>
     <border type="none"/>
     <children>
       <grid id="164de" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -13,36 +15,55 @@
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16577768"/>
+        </properties>
         <border type="none"/>
         <children>
-          <grid id="a5a7f" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="a5a7f" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-16577768"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="1bc07" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-1447425"/>
+                  <font name="Franklin Gothic Demi" size="20"/>
+                  <foreground color="-1447425"/>
                   <text value="Actualice una Pelicula"/>
                 </properties>
               </component>
               <component id="774ed" class="javax.swing.JSeparator">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-16134163"/>
+                  <foreground color="-16134163"/>
+                </properties>
               </component>
               <component id="741f5" class="javax.swing.JToolBar$Separator">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
+              </component>
+              <component id="54ba3" class="javax.swing.JSeparator">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-16134163"/>
+                  <foreground color="-16134163"/>
+                </properties>
               </component>
             </children>
           </grid>
@@ -51,7 +72,9 @@
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-16577768"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="1a492" class="javax.swing.JTextField" binding="campo_codigo">
@@ -69,6 +92,11 @@
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <background color="-11010236"/>
+                  <borderPainted value="false"/>
+                  <focusPainted value="false"/>
+                  <font name="Roboto Light" size="14"/>
+                  <foreground color="-16577768"/>
                   <text value="Consultar"/>
                 </properties>
               </component>
@@ -79,7 +107,9 @@
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-16577768"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="9079e" class="javax.swing.JToolBar$Separator">
@@ -101,7 +131,9 @@
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-16577768"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="b1220" class="javax.swing.JButton" binding="actualizar_img">
@@ -109,6 +141,11 @@
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <background color="-343030"/>
+                      <borderPainted value="false"/>
+                      <focusPainted value="false"/>
+                      <font name="Roboto Light" size="14"/>
+                      <foreground color="-16577768"/>
                       <text value="Reemplazar"/>
                     </properties>
                   </component>
@@ -135,7 +172,9 @@
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-16577768"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <grid id="ce798" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -143,7 +182,9 @@
                     <constraints>
                       <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-16577768"/>
+                    </properties>
                     <border type="none"/>
                     <children>
                       <component id="f9d6f" class="javax.swing.JLabel">
@@ -151,6 +192,8 @@
                           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font name="Roboto Light" size="14"/>
+                          <foreground color="-1447425"/>
                           <text value="Título"/>
                         </properties>
                       </component>
@@ -159,6 +202,8 @@
                           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font name="Roboto Light" size="14"/>
+                          <foreground color="-1447425"/>
                           <text value="Sinopsisi"/>
                         </properties>
                       </component>
@@ -167,6 +212,8 @@
                           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font name="Roboto Light" size="14"/>
+                          <foreground color="-1447425"/>
                           <text value="Género"/>
                         </properties>
                       </component>
@@ -175,6 +222,8 @@
                           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font name="Roboto Light" size="14"/>
+                          <foreground color="-1447425"/>
                           <text value="Sala"/>
                         </properties>
                       </component>
@@ -183,6 +232,8 @@
                           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font name="Roboto Light" size="14"/>
+                          <foreground color="-1447425"/>
                           <text value="Categoría"/>
                         </properties>
                       </component>
@@ -191,6 +242,8 @@
                           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                         </constraints>
                         <properties>
+                          <font name="Roboto Light" size="14"/>
+                          <foreground color="-1447425"/>
                           <text value="Precio"/>
                         </properties>
                       </component>
@@ -201,7 +254,9 @@
                     <constraints>
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <background color="-16577768"/>
+                    </properties>
                     <border type="none"/>
                     <children>
                       <component id="f196a" class="javax.swing.JTextField" binding="campo_titulo">
@@ -290,7 +345,9 @@
                 <constraints>
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
-                <properties/>
+                <properties>
+                  <background color="-16577768"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="88964" class="javax.swing.JButton" binding="actualizarButton" default-binding="true">
@@ -298,6 +355,10 @@
                       <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
+                      <background color="-16134163"/>
+                      <borderPainted value="false"/>
+                      <focusPainted value="false"/>
+                      <font name="Roboto Light" size="14"/>
                       <text value="Actualizar"/>
                     </properties>
                   </component>
@@ -334,20 +395,17 @@
       </vspacer>
       <vspacer id="1508d">
         <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <hspacer id="341f1">
-        <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </hspacer>
       <grid id="32fc3" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16577768"/>
+        </properties>
         <border type="none"/>
         <children>
           <hspacer id="f0372">
@@ -365,12 +423,14 @@
           </component>
         </children>
       </grid>
-      <grid id="ba25" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="ba25" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
-        <properties/>
+        <properties>
+          <background color="-16577768"/>
+        </properties>
         <border type="none"/>
         <children>
           <component id="3f418" class="javax.swing.JButton" binding="regresar_button">
@@ -378,16 +438,40 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
+              <background color="-654991"/>
+              <borderPainted value="false"/>
+              <focusPainted value="false"/>
+              <font size="18"/>
+              <foreground color="-1447425"/>
               <text value="←"/>
             </properties>
           </component>
           <hspacer id="85748">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
+          <vspacer id="49cce">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
+      <component id="50054" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <icon value="Imagenes/logo_mini (2).jpg"/>
+          <text value=""/>
+        </properties>
+      </component>
+      <vspacer id="a8608">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

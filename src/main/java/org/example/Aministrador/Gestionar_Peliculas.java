@@ -19,7 +19,7 @@ public class Gestionar_Peliculas {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Registrar_Pelicula().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 700);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }
@@ -30,7 +30,7 @@ public class Gestionar_Peliculas {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Buscar_Peliculas().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 700);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }
@@ -41,7 +41,7 @@ public class Gestionar_Peliculas {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Actualizar_Peliculas().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 700);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }
@@ -52,7 +52,7 @@ public class Gestionar_Peliculas {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Eliminar_Peliculas().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 700);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }
@@ -63,7 +63,7 @@ public class Gestionar_Peliculas {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new ModuloAdministrador().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 700);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(registrarButton)).dispose();
             }

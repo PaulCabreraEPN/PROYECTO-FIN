@@ -3,6 +3,7 @@ package org.example.Aministrador;
 import org.example.Login;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,7 +20,7 @@ public class ModuloAdministrador {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Login().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }
@@ -30,7 +31,7 @@ public class ModuloAdministrador {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Gestion_Usuarios().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }
@@ -41,7 +42,7 @@ public class ModuloAdministrador {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Gestionar_Peliculas().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }

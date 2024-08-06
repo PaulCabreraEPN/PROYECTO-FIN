@@ -6,6 +6,7 @@ import org.example.Objetos.Pelicula;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ByteArrayOutputStream;
@@ -200,7 +201,7 @@ public class Registrar_Pelicula {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Gestionar_Peliculas().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(regresar_button)).dispose();
             }

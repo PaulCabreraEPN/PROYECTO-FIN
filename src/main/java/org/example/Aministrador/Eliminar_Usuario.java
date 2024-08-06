@@ -5,6 +5,7 @@ import org.bson.Document;
 import org.example.Objetos.Usuario;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -16,6 +17,7 @@ public class Eliminar_Usuario {
     private JButton verButton;
     private JLabel info;
     private JButton eliminarButton;
+    private JButton regresarbutton;
     String connectionString = "mongodb+srv://cabrerasebastian2904:27326460pOl@cluster0.ootv4pb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
     Usuario usuario = new Usuario();
     Boolean encontrar = false;
@@ -73,6 +75,17 @@ public class Eliminar_Usuario {
                     info.setText("Usuario NO encontrado");
                 }
 
+            }
+        });
+        regresarbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new Gestion_Usuarios().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(regresarbutton)).dispose();
             }
         });
     }

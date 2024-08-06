@@ -7,6 +7,7 @@ import org.example.Objetos.Usuario;
 import org.example.Usuario.ModuloUsuario;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.MessageDigest;
@@ -71,7 +72,7 @@ public class Login {
                                     moduloUsuario.setUsuario(usuario.getUser());
                                     frame.setContentPane( moduloUsuario.MainPanel);
                                     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                                    frame.setSize(500, 500);
+                                    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                                     frame.setVisible(true);
                                     ((JFrame)SwingUtilities.getWindowAncestor(ingresarButton)).dispose();
                                 }
@@ -89,13 +90,43 @@ public class Login {
                     }
 
                 }else {
-                    System.out.println("Ingreso como el "+rol);
-                    JFrame frame = new JFrame();
-                    frame.setContentPane( new ModuloAdministrador().MainPanel);
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setSize(500, 500);
-                    frame.setVisible(true);
-                    ((JFrame)SwingUtilities.getWindowAncestor(ingresarButton)).dispose();
+                    try (MongoClient mongoClient = MongoClients.create(connectionString)) {
+                        MongoDatabase database = mongoClient.getDatabase("CinePoli");
+                        MongoCollection<Document> collection = database.getCollection("Admin");
+                        //Se lee
+                        FindIterable<Document> documentos = collection.find();
+
+                        for (Document documento : documentos) {
+                            //System.out.println(documento.toJson());
+                            String admin = documento.getString("usuario");
+                            String pass = documento.getString("contraseña");
+                            System.out.println(admin);
+
+
+                            if (campoUsuario.getText().equals(admin)){
+                                usuariorig=false;
+                                if (campoContrasenia.getText().equals(pass)){
+                                    contraseniarig=false;
+                                    System.out.println("Ingreso como "+rol);
+                                    JFrame frame = new JFrame();
+                                    frame.setContentPane( new ModuloAdministrador().MainPanel);
+                                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                    frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                                    frame.setVisible(true);
+                                    ((JFrame)SwingUtilities.getWindowAncestor(ingresarButton)).dispose();
+                                }
+
+                            }
+
+                        }
+                        if (usuariorig){
+                            JOptionPane.showMessageDialog(null, "Usuario inexistente", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+
+                        if (contraseniarig){
+                            JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
                 }
             }
         });
