@@ -741,7 +741,9 @@ public class Sala {
 
                         JOptionPane.showMessageDialog(null, "Las butacas " + tickets_selecionados + " se han reservado con éxito \n Valor a pagar $ " + String.valueOf(valor_apagar), "Éxito", JOptionPane.INFORMATION_MESSAGE);
                         JFrame frame = new JFrame();
-                        frame.setContentPane( new ModuloUsuario().MainPanel);
+                        ModuloUsuario moduloUsuario = new ModuloUsuario();
+                        moduloUsuario.setUsuario(getUsuario());
+                        frame.setContentPane( moduloUsuario.MainPanel);
                         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                         frame.setVisible(true);
@@ -761,7 +763,9 @@ public class Sala {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame();
-                frame.setContentPane( new ModuloUsuario().MainPanel);
+                ModuloUsuario moduloUsuario = new ModuloUsuario();
+                moduloUsuario.setUsuario(getUsuario());
+                frame.setContentPane( moduloUsuario.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);

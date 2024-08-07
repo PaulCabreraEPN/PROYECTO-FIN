@@ -79,7 +79,9 @@ public class MisTickets {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame();
-                frame.setContentPane( new ModuloUsuario().MainPanel);
+                ModuloUsuario moduloUsuario = new ModuloUsuario();
+                moduloUsuario.setUsuario(getUsuario());
+                frame.setContentPane( moduloUsuario.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
