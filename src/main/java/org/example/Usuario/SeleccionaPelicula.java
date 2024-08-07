@@ -61,7 +61,7 @@ public class SeleccionaPelicula {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new ModuloUsuario().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(regresar_button)).dispose();
             }
@@ -83,7 +83,7 @@ public class SeleccionaPelicula {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(comprarButton)).dispose();
             }

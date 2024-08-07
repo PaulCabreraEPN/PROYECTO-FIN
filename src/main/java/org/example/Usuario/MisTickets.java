@@ -75,5 +75,16 @@ public class MisTickets {
                 }
             }
         });
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame frame = new JFrame();
+                frame.setContentPane( new ModuloUsuario().MainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                frame.setVisible(true);
+                ((JFrame)SwingUtilities.getWindowAncestor(button1)).dispose();
+            }
+        });
     }
 }

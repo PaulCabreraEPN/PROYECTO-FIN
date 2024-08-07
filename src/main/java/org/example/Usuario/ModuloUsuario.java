@@ -72,7 +72,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
 
@@ -87,7 +87,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -101,7 +101,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -115,7 +115,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -129,7 +129,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -143,7 +143,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -157,7 +157,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -171,7 +171,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -185,7 +185,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -199,7 +199,7 @@ public class ModuloUsuario {
                 Panel.setUsuario(Usuario);
                 frame.setContentPane(Panel.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(sala_1)).dispose();
             }
@@ -210,21 +210,7 @@ public class ModuloUsuario {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new Login().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        /*
-        // Obtiene el dispositivo de gráficos
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gd = ge.getDefaultScreenDevice();
-
-        if (gd.isFullScreenSupported()) {
-            frame.setUndecorated(true); // Quita los bordes y la barra de título
-            gd.setFullScreenWindow(frame);
-        } else {
-            System.err.println("Pantalla completa no es soportada");
-            frame.setSize(800, 600); // Tamaño por defecto si pantalla completa no es soportada
-            frame.setVisible(true);
-        }*/
-
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
 
@@ -239,6 +225,7 @@ public class ModuloUsuario {
                 misTickets.setUsuario(Usuario);
                 frame.setContentPane( misTickets.MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(cerrarSesionButton)).dispose();
             }

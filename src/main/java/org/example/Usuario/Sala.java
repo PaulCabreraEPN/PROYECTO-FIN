@@ -716,36 +716,43 @@ public class Sala {
                 ticket.setValor_pagar(valor_apagar);
                 ticket.setSala(misala);
 
-                //Se establece la conexión con la Base de Datos
-                try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-                    MongoDatabase database = mongoClient.getDatabase("CinePoli");
-                    MongoCollection<Document> collection = database.getCollection("Tickets");
+                if (tickets_totales==0){
+                    //Se establece la conexión con la Base de Datos
+                    try (MongoClient mongoClient = MongoClients.create(connectionString)) {
+                        MongoDatabase database = mongoClient.getDatabase("CinePoli");
+                        MongoCollection<Document> collection = database.getCollection("Tickets");
 
-                    for (int i = 0; i < tickets_selecionados.size(); i++) {
-                        ticket.setButaca(tickets_selecionados.get(i));
-                        System.out.println(tickets_selecionados.get(i));
+                        for (int i = 0; i < tickets_selecionados.size(); i++) {
+                            ticket.setButaca(tickets_selecionados.get(i));
+                            System.out.println(tickets_selecionados.get(i));
 
-                        //Se inserta los tickets en la base de datos
-                        Document documento = new Document("usuario",ticket.getUsuario())
-                                .append("pelicula",ticket.getPelicula())
-                                .append("idioma",ticket.getIdioma())
-                                .append("sala",ticket.getSala())
-                                .append("Butaca",ticket.getButaca())
-                                .append("horario",ticket.getHorario())
-                                .append("fecha",ticket.getFecha())
-                                .append("valor_pago",ticket.getValor_pagar());
-                        collection.insertOne(documento);
+                            //Se inserta los tickets en la base de datos
+                            Document documento = new Document("usuario",ticket.getUsuario())
+                                    .append("pelicula",ticket.getPelicula())
+                                    .append("idioma",ticket.getIdioma())
+                                    .append("sala",ticket.getSala())
+                                    .append("Butaca",ticket.getButaca())
+                                    .append("horario",ticket.getHorario())
+                                    .append("fecha",ticket.getFecha())
+                                    .append("valor_pago",ticket.getValor_pagar());
+                            collection.insertOne(documento);
+                        }
+
+
+                        JOptionPane.showMessageDialog(null, "Las butacas " + tickets_selecionados + " se han reservado con éxito \n Valor a pagar $ " + String.valueOf(valor_apagar), "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                        JFrame frame = new JFrame();
+                        frame.setContentPane( new ModuloUsuario().MainPanel);
+                        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                        frame.setVisible(true);
+                        ((JFrame)SwingUtilities.getWindowAncestor(button1)).dispose();
                     }
+                }else {
+                    JOptionPane.showMessageDialog(null, "Por favor, Seleccione todas sus Butacas.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
-
-                    JOptionPane.showMessageDialog(null, "Las butacas " + tickets_selecionados + " se han reservado con éxito \n Valor a pagar $ " + String.valueOf(valor_apagar), "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    JFrame frame = new JFrame();
-                    frame.setContentPane( new ModuloUsuario().MainPanel);
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setSize(500, 500);
-                    frame.setVisible(true);
-                    ((JFrame)SwingUtilities.getWindowAncestor(button1)).dispose();
                 }
+
+
 
             }
 
@@ -756,7 +763,7 @@ public class Sala {
                 JFrame frame = new JFrame();
                 frame.setContentPane( new ModuloUsuario().MainPanel);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
+                frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
                 frame.setVisible(true);
                 ((JFrame)SwingUtilities.getWindowAncestor(button1)).dispose();
             }
